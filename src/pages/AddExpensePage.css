@@ -1,0 +1,107 @@
+.add-expense-container {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #1e1e1e; 
+  border-radius: 16px;
+  border: 1px solid #333;
+}
+
+.expense-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; 
+}
+
+.amount-input-wrapper {
+  text-align: center;
+}
+.amount-input {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 4rem; 
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+  outline: none;
+}
+.amount-input::placeholder {
+  color: #555;
+}
+
+
+.category-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.category-btn {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 2px solid #444;
+  background-color: #2d2d2d;
+  color: #ccc;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.category-btn:hover {
+  border-color: #666;
+}
+.category-btn.active {
+  border-color: #4CAF50;
+  background-color: #2a3a2b;
+  color: white;
+  font-weight: 600;
+}
+.category-icon {
+  font-size: 1.2rem;
+}
+
+
+.note-input {
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #444;
+  background-color: #2d2d2d;
+  color: white;
+  font-size: 1rem;
+}
+.note-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+
+.save-btn {
+  padding: 1rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.save-btn:hover {
+  background-color: #45a049;
+}
+.save-btn:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+.status-message {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: #a9a9a9;
+  font-style: italic;
+  height: 20px;
+}

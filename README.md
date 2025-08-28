@@ -32,7 +32,7 @@ Make sure you have [Node.js](https://nodejs.org/) (version 18 or higher) and npm
 1.  **Clone the repository:**
 
     ```sh
-    git clone <your-repository-url>
+    git clone https://github.com/makhambetali/kashgari.git
     cd expense-tracker
     ```
 

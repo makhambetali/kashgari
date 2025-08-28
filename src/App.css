@@ -1,14 +1,13 @@
 .app-container {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 1.5rem;
 }
 
 .main-nav {
-  padding: 1rem 0;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #444;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
   display: flex;
   justify-content: center;
   gap: 1.5rem;
@@ -16,18 +15,19 @@
 
 .main-nav a {
   font-weight: 500;
-  color: #a9a9a9;
+  color: var(--subtle-text-color);
   text-decoration: none;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 8px;
   transition: all 0.2s ease-in-out;
 }
 
 .main-nav a.active {
   color: #ffffff;
-  background-color: #4CAF50;
+  background-color: var(--primary-color);
 }
 
-.main-nav a:hover {
-  background-color: #3e3e3e;
+.main-nav a:hover:not(.active) {
+  background-color: #f0f0f0;
+  color: var(--text-color);
 }

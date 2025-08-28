@@ -1,19 +1,16 @@
-
-
-
 .expense-form-container {
+  width: 100%;
   max-width: 450px;
   margin: 0 auto;
   padding: 2rem;
-  background-color: #1e1e1e; 
+  background-color: var(--card-background);
   border-radius: 16px;
-  border: 1px solid #333;
 }
 
 .expense-form-content {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; 
+  gap: 1.5rem;
 }
 
 .amount-input-wrapper {
@@ -22,17 +19,16 @@
 .amount-input {
   background: none;
   border: none;
-  color: white;
-  font-size: 4rem; 
+  color: var(--text-color);
+  font-size: 4rem;
   font-weight: 600;
   width: 100%;
   text-align: center;
   outline: none;
 }
 .amount-input::placeholder {
-  color: #555;
+  color: #ccc;
 }
-
 
 .category-selector {
   display: flex;
@@ -47,85 +43,76 @@
   gap: 0.5rem;
   padding: 0.75rem;
   border-radius: 10px;
-  border: 2px solid #444;
-  background-color: #2d2d2d;
-  color: #ccc;
+  border: 2px solid var(--border-color);
+  background-color: #f7fafc;
+  color: var(--subtle-text-color);
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 .category-btn:hover {
-  border-color: #666;
+  border-color: #c9d5e0;
 }
 .category-btn.active {
-  border-color: #4CAF50;
-  background-color: #2a3a2b;
-  color: white;
+  border-color: var(--primary-color);
+  background-color: #eff6ff;
+  color: var(--primary-color);
   font-weight: 600;
 }
 .category-icon {
   font-size: 1.2rem;
 }
 
-
 .note-input {
   padding: 0.8rem 1rem;
   border-radius: 10px;
-  border: 1px solid #444;
-  background-color: #2d2d2d;
-  color: white;
+  border: 1px solid var(--border-color);
+  background-color: #f7fafc;
+  color: var(--text-color);
   font-size: 1rem;
 }
 .note-input:focus {
   outline: none;
-  border-color: #4CAF50;
+  border-color: var(--primary-color);
 }
 
-
-.save-btn {
+.form-actions {
+  display: flex;
+  gap: 1rem;
+}
+.save-btn,
+.btn-cancel {
+  flex-grow: 1;
   padding: 1rem;
   border-radius: 10px;
   border: none;
-  background-color: #4CAF50;
-  color: white;
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s;
 }
+
+.btn-cancel {
+  background-color: #e2e8f0;
+  color: var(--subtle-text-color);
+}
+
+.save-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
 .save-btn:hover {
-  background-color: #45a049;
+  opacity: 0.9;
 }
 .save-btn:disabled {
-  background-color: #555;
+  background-color: #ccc;
   cursor: not-allowed;
 }
 
 .status-message {
   margin-top: 1.5rem;
   text-align: center;
-  color: #a9a9a9;
+  color: var(--subtle-text-color);
   font-style: italic;
   height: 20px;
-}
-
-.form-actions {
-    display: flex;
-    gap: 1rem;
-}
-.form-actions .save-btn,
-.form-actions .btn-cancel {
-    flex-grow: 1;
-    padding: 1rem;
-    border-radius: 10px;
-    border: none;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.form-actions .btn-cancel {
-    background-color: #555;
-    color: white;
 }

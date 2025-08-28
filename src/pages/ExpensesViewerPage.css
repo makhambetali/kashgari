@@ -1,81 +1,98 @@
 .viewer-container {
   display: flex;
-  height: calc(100vh - 120px); 
+  height: calc(100vh - 120px);
   width: 100%;
   max-width: 100%;
-  background-color: #2d2d2d;
-  border-radius: 8px;
+  background-color: var(--card-background);
+  border-radius: 16px;
   overflow: hidden;
   text-align: left;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
 }
 
 .sidebar {
   width: 380px;
   flex-shrink: 0;
-  border-right: 1px solid #444;
+  border-right: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
+  background-color: #fcfdfe;
 }
 
-.map-container {
-  flex-grow: 1;
+.sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.sidebar-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+.sidebar-header p {
+  margin: 0;
+  color: var(--subtle-text-color);
 }
 
 .date-navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid #444;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
 }
 .date-navigation button {
   background: none;
   border: none;
-  color: white;
-  font-size: 1.5rem;
+  color: var(--text-color);
+  font-size: 1.75rem;
   cursor: pointer;
+  padding: 0 0.5rem;
 }
 .date-navigation span {
-  font-weight: bold;
-  font-size: 1.1rem;
+  font-weight: 500;
+  font-size: 1rem;
 }
 
 .daily-summary {
   display: flex;
   justify-content: space-between;
   padding: 1rem 1.5rem;
-  border-bottom: 1px solid #444;
+  background-color: var(--card-background);
+  border-bottom: 1px solid var(--border-color);
 }
 .daily-summary p {
   margin: 0;
-  color: #a9a9a9;
+  color: var(--subtle-text-color);
   font-size: 0.9rem;
 }
 .daily-summary h3 {
   margin: 0.25rem 0 0;
   font-size: 1.5rem;
+  color: var(--text-color);
 }
 
 .expense-list {
   flex-grow: 1;
   overflow-y: auto;
-  padding: 0.5rem;
+  padding: 0.75rem;
 }
 
 .expense-item {
+  position: relative;
   padding: 1rem;
   margin: 0.5rem;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s;
   border: 2px solid transparent;
+  background-color: var(--card-background);
 }
 .expense-item:hover {
-  background-color: #3e3e3e;
+  background-color: #f7fafc;
 }
 .expense-item.active {
-  background-color: #3a4a60;
-  border-color: #4c82c3;
+  border-color: var(--primary-color);
+  background-color: #eff6ff;
 }
 
 .item-main {
@@ -85,27 +102,25 @@
   margin-bottom: 0.5rem;
 }
 .item-amount {
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1.1rem;
 }
 .item-category {
-  background-color: #555;
   padding: 0.2rem 0.6rem;
   border-radius: 12px;
   font-size: 0.8rem;
+  font-weight: 500;
 }
 .item-details p {
   margin: 0;
-  color: #a9a9a9;
+  color: var(--subtle-text-color);
+  font-size: 0.9rem;
 }
 
 .no-expenses {
   text-align: center;
   margin-top: 3rem;
-  color: #a9a9a9;
-}
-.expense-item {
-  position: relative; 
+  color: var(--subtle-text-color);
 }
 
 .expense-item-actions {
@@ -114,24 +129,88 @@
   right: 10px;
   display: flex;
   gap: 5px;
-  opacity: 0; 
+  opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
-
 .expense-item:hover .expense-item-actions {
   opacity: 1;
 }
-
 .expense-item-actions button {
-  background: rgba(0, 0, 0, 0.4);
-  border: none;
-  color: white;
-  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  border-radius: 6px;
   cursor: pointer;
   padding: 4px 6px;
   font-size: 14px;
 }
-
 .expense-item-actions button:hover {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(255, 255, 255, 1);
+}
+
+
+.map-area {
+  flex-grow: 1;
+  position: relative;
+}
+
+.map-summary-card,
+.map-categories-legend {
+  position: absolute;
+  background-color: var(--card-background);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  z-index: 1000; 
+  border: 1px solid var(--border-color);
+}
+
+.map-summary-card {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.map-summary-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+.summary-details {
+  display: flex;
+  gap: 1.5rem;
+  color: var(--subtle-text-color);
+}
+.summary-details span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.summary-details span svg {
+  vertical-align: middle;
+}
+
+.map-categories-legend {
+  bottom: 20px;
+  right: 20px;
+}
+.map-categories-legend h4 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+.categories-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1.5rem;
+}
+.category-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+}
+.category-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
 }

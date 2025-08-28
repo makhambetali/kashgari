@@ -3,7 +3,8 @@ export interface Expense {
   amount: number;
   note: string;
   category: string;
-  date: string; // ISO
+  date: string;
+  locationName: string;
   geolocation: {
     latitude: number;
     longitude: number;

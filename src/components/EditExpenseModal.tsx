@@ -15,8 +15,8 @@ export const EditExpenseModal = ({ expense, onUpdate, onClose }: EditExpenseModa
   const handleSaveChanges = (expenseData: Omit<Expense, 'id' | 'date' | 'geolocation'>, originalExpense?: Expense) => {
     if (originalExpense) {
       const updatedExpense: Expense = {
-        ...originalExpense, 
-        ...expenseData,   
+        ...originalExpense,
+        ...expenseData,
       };
       onUpdate(updatedExpense);
     }

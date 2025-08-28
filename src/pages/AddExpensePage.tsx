@@ -7,6 +7,12 @@ export const AddExpensePage = () => {
   const [expenses, setExpenses] = useLocalStorage<Expense[]>('expenses', []);
 
   const handleSaveNewExpense = (expenseData: Omit<Expense, 'id' | 'date' | 'geolocation'>) => {
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0,
+    };
+    
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const newExpense: Expense = {
@@ -22,8 +28,21 @@ export const AddExpensePage = () => {
         alert('✅ Expense added successfully!');
       },
       (error) => {
-        alert(`❌ Geolocation error: ${error.message}`);
-      }
+        let errorMessage = '❌ Unknown error. Please try again.';
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            errorMessage = '❌ Geolocation access denied. Please check browser settings.';
+            break;
+          case error.POSITION_UNAVAILABLE:
+            errorMessage = '❌ Location information is unavailable. Please check your network.';
+            break;
+          case error.TIMEOUT:
+            errorMessage = '❌ Geolocation request timed out. Please try again.';
+            break;
+        }
+        alert(errorMessage);
+      },
+      options
     );
   };
 
